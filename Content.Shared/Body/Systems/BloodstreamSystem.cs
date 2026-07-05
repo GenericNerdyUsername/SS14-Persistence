@@ -14,14 +14,14 @@ using Content.Shared.Forensics;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Gibbing;
 using Content.Shared.HealthExaminable;
+using Content.Shared.Inventory;
 using Content.Shared.Metabolism;
-using Content.Shared.Inventory; // Funky: Footprints & Stains
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Rejuvenate;
 using Content.Shared.StatusEffectNew;
-using Content.Shared._Funkystation.Fluids; // Funky: Footprints & Stains
+using Content.Shared._Funkystation.Fluids;
 using Content.Shared._Funkystation.WallStains; // Funky Wall Stains
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -43,8 +43,8 @@ public sealed partial class BloodstreamSystem : EntitySystem
     [Dependency] private AlertsSystem _alertsSystem = default!;
     [Dependency] private MobStateSystem _mobStateSystem = default!;
     [Dependency] private DamageableSystem _damageableSystem = default!;
-    [Dependency] private EntityLookupSystem _lookup = default!; // Funky: Footprints & Stains
     [Dependency] private MetabolizerSystem _metabolizer = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!; // Funky: Footprints & Stains
 
     public override void Update(float frameTime)
     {
@@ -608,7 +608,6 @@ public sealed partial class BloodstreamSystem : EntitySystem
                 break;
         }
 
-        // Funky Wall Stains
         var splashEv = new SplashOnWallEvent(xform.Coordinates, tempSol.Clone());
         RaiseLocalEvent(ref splashEv);
         // End Funky
