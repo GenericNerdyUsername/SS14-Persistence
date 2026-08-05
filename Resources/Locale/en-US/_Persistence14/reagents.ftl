@@ -7,10 +7,10 @@ reagent-name-polycider = Polycider Elixir
 reagent-desc-polycider = 3/10 wizard schools recommend this elixir for all your shapeshifting needs.
 
 # MEDICINE #
-reagent-name-pyronitrodone = Pyronitrodone
+reagent-name-pyronitrodone = pyronitrodone
 reagent-desc-pyronitrodone = A chemical used as a base for pyrogenics, can burn out toxins from the system on it's own.
 
-reagent-name-noxapyrone = Noxapyrone
+reagent-name-noxapyrone = noxapyrone
 reagent-desc-noxapyrone = A pyrogenic that slowly kills off effects of radiation in patients. Can be used on dead.
 
 # NARCOTICS #
