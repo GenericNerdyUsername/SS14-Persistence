@@ -132,7 +132,7 @@
   group: servicemarket2
 
 - type: cargoProduct
-  id: ServiceSodaDispenser
+  id: ServiceSodaDispenserSeTS
   icon:
     sprite: Objects/Consumable/Drinks/generic_jug.rsi
     state: icon
@@ -182,7 +182,7 @@
   group: servicemarket
 
 - type: cargoProduct
-  id: ServiceCustomSmokable
+  id: ServiceCustomSmokableSeTS
   icon:
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi
     state: icon
@@ -288,7 +288,7 @@
   group: servicemarket
 
 - type: cargoProduct
-  id: FunBoardGames
+  id: FunBoardGamesSeTS
   icon:
     sprite: Objects/Fun/dice.rsi
     state: d6_6
@@ -385,7 +385,7 @@
   product: CrateFunPirate
   cost: 400
   category: cargoproduct-category-name-fun
-  group: mservicearket3
+  group: servicearket3
 
 - type: cargoProduct
   id: ServiceTheatreSeTS
@@ -414,7 +414,7 @@
     state: icon
   product: CrateServiceEvaKit
   cost: 6500
-  category: cargoproduct-category-name-engineering
+  category: cargoproduct-category-name-atmospherics
   group: servicemarket
 
 
@@ -598,16 +598,6 @@
   cost: 1000
   category: cargoproduct-category-name-food
   group: servicemarket2
-
-- type: cargoProduct
-  id: FoodDinnerwareSeTS
-  icon:
-    sprite: Objects/Consumable/Food/plates.rsi
-    state: tin
-  product: CrateFoodDinnerware
-  cost: 750
-  category: cargoproduct-category-name-food
-  group: servicemarket
 
 - type: cargoProduct
   id: FoodDinnerwareSeTS
@@ -943,7 +933,7 @@
   group: servicemarket4
 
 - type: cargoProduct
-  id: LivestockMouse
+  id: LivestockMouseSeTS
   icon:
     sprite: Mobs/Animals/mouse.rsi
     state: icon-0
@@ -973,7 +963,7 @@
   group: servicemarket3
 
 - type: cargoProduct
-  id: LivestockPig
+  id: LivestockPigSeTS
   icon:
     sprite: Mobs/Animals/pig.rsi
     state: pig

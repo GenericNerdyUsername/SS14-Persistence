@@ -288,11 +288,10 @@
 
 - type: cargoBounty
   id: BountyWehPlushie
-  reward: 600
-  description: bounty-description-weh-plushie
+  reward: 900
   entries:
   - name: bounty-item-weh-plushie
-    amount: 25
+    amount: 15
     whitelist:
       tags:
       - PlushieLizard
@@ -302,7 +301,6 @@
 - type: cargoBounty
   id: BountyHandyFlag
   reward: 500
-  description: bounty-description-handy-flag
   entries:
   - name: bounty-item-handy-flag
     amount: 25
