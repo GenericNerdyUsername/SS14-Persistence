@@ -295,6 +295,19 @@
     amount: 25
     whitelist:
       tags:
-      - LizardPlushie
+      - PlushieLizard
+  group: ServiceBounty
+  bountyType: PayPer
+
+- type: cargoBounty
+  id: BountyHandyFlag
+  reward: 500
+  description: bounty-description-handy-flag
+  entries:
+  - name: bounty-item-handy-flag
+    amount: 25
+    whitelist:
+      tags:
+      - FlagHand
   group: ServiceBounty
   bountyType: PayPer

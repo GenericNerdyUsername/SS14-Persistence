@@ -2,7 +2,7 @@
 
 
 
-#materials
+#region materials
 
 - type: cargoProduct
   id: CardboardMaterialSeTS
@@ -79,7 +79,7 @@
 
 
 
-#premade food and drink
+#region premade food and drink
 
 - type: cargoProduct
   id: FoodPizzaSeTS
@@ -192,11 +192,7 @@
   group: servicemarket
 
 
-
-
-
-#Bureaucracy
-
+#region Bureaucracy
 
 - type: cargoProduct
   id: ServiceBureaucracySeTS
@@ -239,12 +235,7 @@
   group: servicemarket2
 
 
-
-
-
-
-
-#toys
+#region Toys
 
 - type: cargoProduct
   id: FunPlushiesSeTS
@@ -433,7 +424,7 @@
 
 
 
-#plants
+#region Plants
 
 - type: cargoProduct
   id: HydroponicsSeedsExoticSeTS
@@ -506,13 +497,7 @@
   group: servicemarket
 
 
-
-
-
-
-
-
-#Cooking
+#region Cooking
 
 - type: cargoProduct
   id: FoodCookIngredientsSeTS
@@ -588,7 +573,7 @@
   id: FoodCookOilSeTS
   icon:
     sprite: Objects/Consumable/Food/ingredients.rsi
-    state: oliveoilsugar-big
+    state: oliveoil
   product: CrateFoodBulkOliveOil
   cost: 800
   category: cargoproduct-category-name-food
@@ -651,7 +636,7 @@
 
 
 
-# Instruments
+#region Instruments
 
 - type: cargoProduct
   id: FunInstrumentsVarietySeTS
@@ -726,10 +711,7 @@
 
 
 
-
-
-
-#jani stuff
+#region Jani stuff
 
 - type: cargoProduct
   id: ServiceJanitorialSeTS
@@ -818,7 +800,7 @@
 
 
 
-# Animals
+#region Animals
 
 - type: cargoProduct
   id: HydratedScurretSeTS

@@ -11,7 +11,7 @@
     sprite: Objects/Misc/Handy_Flags/blank_handy_flag.rsi
   - type: Tag
     tags:
-    - HandyFlag
+    - FlagHand
 
 - type: entity
   parent: BaseItem
@@ -26,7 +26,7 @@
     sprite: Objects/Misc/Handy_Flags/NT_handy_flag.rsi
   - type: Tag
     tags:
-    - HandyFlag
+    - FlagHand
 
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
@@ -41,7 +41,7 @@
     sprite: Objects/Misc/Handy_Flags/syndie_handy_flag.rsi
   - type: Tag
     tags:
-    - HandyFlag
+    - FlagHand
 
 - type: entity
   parent: BaseItem
@@ -56,7 +56,7 @@
     sprite: Objects/Misc/Handy_Flags/lgbtq_handy_flag.rsi
   - type: Tag
     tags:
-    - HandyFlag
+    - FlagHand
 
 - type: entity
   parent: BaseItem
@@ -71,4 +71,4 @@
     sprite: Objects/Misc/Handy_Flags/pirate_handy_flag.rsi
   - type: Tag
     tags:
-    - HandyFlag
+    - FlagHand
