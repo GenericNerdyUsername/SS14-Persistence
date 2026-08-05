@@ -385,7 +385,7 @@
   product: CrateFunPirate
   cost: 400
   category: cargoproduct-category-name-fun
-  group: servicearket3
+  group: servicemarket3
 
 - type: cargoProduct
   id: ServiceTheatreSeTS
