@@ -4,7 +4,7 @@
   group: Medicine
   desc: reagent-desc-pyronitrodone
   physicalDesc: reagent-physical-desc-fizzy
-  flavor: Medicine
+  flavor: medicine
   color: "#f2773a"
   metabolisms:
     Bloodstream:
@@ -23,7 +23,7 @@
   group: Medicine
   desc: reagent-desc-noxapyrone
   physicalDesc: reagent-physical-desc-cloudy
-  flavor: Medicine
+  flavor: medicine
   color: "#371f4f"
   worksOnTheDead: true
   metabolisms:
