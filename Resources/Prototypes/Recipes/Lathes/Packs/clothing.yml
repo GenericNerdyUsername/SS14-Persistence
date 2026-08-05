@@ -287,6 +287,8 @@
   - ClothingHeadHatParamedicsoft
   - ClothingBeltMedical
   - ClothingNeckStethoscope
+  - ClothingUniformJumpsuitParamedicNew
+  - ClothingUniformJumpskirtParamedicNew
 
 - type: latheRecipePack
   id: ClothingScience

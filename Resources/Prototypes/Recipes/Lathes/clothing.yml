@@ -885,8 +885,18 @@
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitParamedicNew
+  result: ClothingUniformJumpsuitParamedicNew
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtParamedic
   result: ClothingUniformJumpskirtParamedic
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtParamedicNew
+  result: ClothingUniformJumpskirtParamedicNew
 
 ## Senior Officer
 
@@ -1205,12 +1215,12 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformGenericTurtleNeckAndJeans
   result: ClothingUniformGenericTurtleNeckAndJeans
-  
+
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformRandomStandard
   result: ClothingUniformRandomStandard
-  
+
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformRandomBra
