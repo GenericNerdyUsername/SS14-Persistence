@@ -1032,6 +1032,9 @@
   id: NoConsoleSound # Blacklist on BaseComputer, StationMap. Tagged entity will not make sound when opening the UI.
 
 - type: Tag
+  id: NoGib # Persistence 14: Prevents anything this is put on from being gibbed. Temporary solution to gibbing related glitches.
+
+- type: Tag
   id: NotGhostnadoWarpable # Prevents the entity from being selected via "Warp to most followed" ghost warp
 
 - type: Tag
