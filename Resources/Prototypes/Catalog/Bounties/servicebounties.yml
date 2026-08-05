@@ -283,3 +283,18 @@
   group: ServiceBounty
   bountyType: PayPer
 
+#Persistence 14
+
+
+- type: cargoBounty
+  id: BountyWehPlushie
+  reward: 600
+  description: bounty-description-weh-plushie
+  entries:
+  - name: bounty-item-weh-plushie
+    amount: 25
+    whitelist:
+      tags:
+      - LizardPlushie
+  group: ServiceBounty
+  bountyType: PayPer

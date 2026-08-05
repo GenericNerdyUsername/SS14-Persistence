@@ -230,3 +230,8 @@ bounty-description-bear = I want one'o them fancy schmancy Ol' Sollian Bearhide 
 bounty-description-spider = I wonder if Spider tastes like Crab? Get me some spider meat! and, yknow what! Their egg too! I'll pay big bucks!
 bounty-description-snake = Snakeskin seems so luxurious... I have a dire need for some snakeskin boots. Freshly killed for, ideally... send me its fresh meat as proof.
 bounty-description-xeno = Some people say their flesh tastes good. I don't believe that. Gimme some to sample... it can't be that good, can it?
+
+
+#Persistence 14
+
+bounty-description-weh-plushie = Morale has been low as of late and a little love is needed to cheer people up, those lizard plushies would work great to show our station that we care about them without actually having to care ourselves.
