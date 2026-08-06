@@ -289,17 +289,6 @@
 
 - type: entity
   parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtParamedicNew
-  name: paramedic jumpskirt
-  description: It's got a plus on it, that's a good thing right?
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/newparamedic.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/newparamedic.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtBrigmedic
   name: brigmedic jumpskirt
   description: This uniform is issued to qualified personnel who have been trained. No one cares that the training took half a day.
@@ -703,17 +692,6 @@
     sprite: Clothing/Uniforms/Jumpskirt/senior_physician.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpskirt/senior_physician.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtSeniorPhysicianNew
-  name: senior physician jumpskirt
-  description: A sign of skill and prestige within the medical department.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/newsenior_physician.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/newsenior_physician.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
