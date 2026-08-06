@@ -289,6 +289,7 @@
 - type: cargoBounty
   id: BountyWehPlushie
   reward: 900
+  description: bounty-description-banana
   entries:
   - name: bounty-item-weh-plushie
     amount: 15
@@ -301,6 +302,7 @@
 - type: cargoBounty
   id: BountyHandyFlag
   reward: 500
+  description: bounty-description-banana
   entries:
   - name: bounty-item-handy-flag
     amount: 25
