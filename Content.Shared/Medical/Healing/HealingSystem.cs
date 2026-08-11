@@ -193,7 +193,7 @@ public sealed class HealingSystem : EntitySystem
         if (TryComp<StackComponent>(healing, out var stack) && stack.Count < 1)
             return false;
 
-        if (!HasDamage(healing, target!))
+        if (!CheckConditions(healing, target))
         {
             _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use", ("item", healing.Owner)), healing, user);
             return false;
@@ -222,11 +222,6 @@ public sealed class HealingSystem : EntitySystem
                 BreakOnMove = true,
                 BreakOnWeightlessMove = false,
             };
-        if(!CheckConditions(healing, target))
-        {
-            _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use", ("item", healing.Owner)), healing, user);
-            return false;
-        }
         _doAfter.TryStartDoAfter(doAfterEventArgs);
         return true;
     }
