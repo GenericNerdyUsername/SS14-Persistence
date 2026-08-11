@@ -6,6 +6,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
+using Content.Shared.EntityConditions;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -30,6 +31,7 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly SharedEntityConditionsSystem _entityConditions = default!;
 
     public override void Initialize()
     {
@@ -220,8 +222,23 @@ public sealed class HealingSystem : EntitySystem
                 BreakOnMove = true,
                 BreakOnWeightlessMove = false,
             };
-
+        if(!CheckConditions(healing, target))
+        {
+            _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use", ("item", healing.Owner)), healing, user);
+            return false;
+        }
         _doAfter.TryStartDoAfter(doAfterEventArgs);
+        return true;
+    }
+
+    private bool CheckConditions(Entity<HealingComponent> healing, Entity<DamageableComponent?> target)
+    {
+        if (!HasDamage(healing, target!))
+            return false;
+
+        if (healing.Comp.Conditions != null && !_entityConditions.TryConditions(target.Owner, healing.Comp.Conditions))
+            return false;
+
         return true;
     }
 
