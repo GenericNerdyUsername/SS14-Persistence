@@ -31,6 +31,7 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly SharedEntityConditionsSystem _entityConditions = default!;
 
     public override void Initialize()
     {
@@ -95,7 +96,11 @@ public sealed class HealingSystem : EntitySystem
         {
             PredictedQueueDel(args.Used.Value);
         }
-
+/// Basically somewhere in here I think I need somethiing like
+/// var dontRepeat = false:
+/// if (CheckConditions Returns as fals and then it should play the
+/// _audio.playpredicted(healing.HealingEndSound etc etc.))
+/// And stop the healing interaction, but I can't figure out the logic needed
         if (target.Owner != args.User)
         {
             _adminLogger.Add(LogType.Healed,
@@ -197,6 +202,11 @@ public sealed class HealingSystem : EntitySystem
             _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use", ("item", healing.Owner)), healing, user);
             return false;
         }
+        if (!CheckConditions(healing, target))
+        {
+            _popupSystem.PopupClient(Loc.GetString("that-topical-isn't-appropriate", ("item", healing.Owner)), healing, user);
+            return false;
+        }
 
         _audio.PlayPredicted(healing.Comp.HealingBeginSound, healing, user);
 
@@ -223,6 +233,19 @@ public sealed class HealingSystem : EntitySystem
             };
 
         _doAfter.TryStartDoAfter(doAfterEventArgs);
+        return true;
+    }
+/// <summary>
+/// Checks a list of conditions to verify that they all return true.
+/// this is more or less boiler plate from the shared entity conditions system, but adapted for healing
+/// I did it as a private boolean instead of a public because I figured if I more or less maintained
+/// the same structure as the HasDamage Argument I could get it to work with enough effort
+
+    private bool CheckConditions(Entity<HealingComponent> healing, Entity<DamageableComponent?> target)
+    {
+        if (healing.Comp.Conditions != null && !_entityConditions.TryConditions(target.Owner, healing.Comp.Conditions))
+            return false;
+
         return true;
     }
 

@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
-
+using Content.Shared.EntityConditions;
+using Content.Shared.EntityConditions.Conditions;
 namespace Content.Shared.EntityConditions;
 
 /// <summary>
@@ -149,4 +150,19 @@ public record struct EntityConditionEvent<T>(T Condition) where T : EntityCondit
     /// The Condition being raised in this event
     /// </summary>
     public readonly T Condition = Condition;
+}
+public sealed class GiveMeConditions : EntitySystem
+{
+    [Dependency] private readonly SharedEntityConditionsSystem _conditions = default!;
+
+    public bool CheckConditions(EntityUid target, EntityCondition[] conditions)
+    {
+        foreach (var condition in conditions)
+        {
+            if (!_conditions.TryCondition(target, condition))
+                return false;
+        }
+
+        return true;
+    }
 }
