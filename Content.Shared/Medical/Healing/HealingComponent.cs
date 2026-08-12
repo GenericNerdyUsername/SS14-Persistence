@@ -64,6 +64,9 @@ public sealed partial class HealingComponent : Component
     [DataField]
     public SoundSpecifier? HealingEndSound = null;
 
+    /// <summary>
+    /// Conditions that must be met for the healing to be applied.
+    /// </summary>
     [DataField]
     public EntityCondition[]? Conditions;
 }

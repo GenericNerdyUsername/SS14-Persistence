@@ -31,7 +31,6 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly SharedEntityConditionsSystem _entityConditions = default!;
 
     public override void Initialize()
     {
@@ -193,7 +192,7 @@ public sealed class HealingSystem : EntitySystem
         if (TryComp<StackComponent>(healing, out var stack) && stack.Count < 1)
             return false;
 
-        if (!CheckConditions(healing, target))
+        if (!HasDamage(healing, target!))
         {
             _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use", ("item", healing.Owner)), healing, user);
             return false;
@@ -222,18 +221,8 @@ public sealed class HealingSystem : EntitySystem
                 BreakOnMove = true,
                 BreakOnWeightlessMove = false,
             };
+
         _doAfter.TryStartDoAfter(doAfterEventArgs);
-        return true;
-    }
-
-    private bool CheckConditions(Entity<HealingComponent> healing, Entity<DamageableComponent?> target)
-    {
-        if (!HasDamage(healing, target!))
-            return false;
-
-        if (healing.Comp.Conditions != null && !_entityConditions.TryConditions(target.Owner, healing.Comp.Conditions))
-            return false;
-
         return true;
     }
 
