@@ -96,11 +96,7 @@ public sealed class HealingSystem : EntitySystem
         {
             PredictedQueueDel(args.Used.Value);
         }
-/// Basically somewhere in here I think I need somethiing like
-/// var dontRepeat = false:
-/// if (CheckConditions Returns as fals and then it should play the
-/// _audio.playpredicted(healing.HealingEndSound etc etc.))
-/// And stop the healing interaction, but I can't figure out the logic needed
+
         if (target.Owner != args.User)
         {
             _adminLogger.Add(LogType.Healed,
@@ -113,7 +109,7 @@ public sealed class HealingSystem : EntitySystem
         }
 
         _audio.PlayPredicted(healing.HealingEndSound, target.Owner, args.User);
-
+        //New for Persistence
         // Logic to determine the whether or not to repeat the healing action
         args.Repeat = !dontRepeat && HasDamage((args.Used.Value, healing), target) && CheckConditions((args.Used.Value, healing), target);
         args.Handled = true;
@@ -204,7 +200,7 @@ public sealed class HealingSystem : EntitySystem
         }
         if (!CheckConditions(healing, target))
         {
-            _popupSystem.PopupClient(Loc.GetString("that-topical-isn't-appropriate", ("item", healing.Owner)), healing, user);
+            _popupSystem.PopupClient(Loc.GetString("topical-isn't-appropriate", ("item", healing.Owner)), healing, user);
             return false;
         }
 
@@ -235,11 +231,7 @@ public sealed class HealingSystem : EntitySystem
         _doAfter.TryStartDoAfter(doAfterEventArgs);
         return true;
     }
-/// <summary>
-/// Checks a list of conditions to verify that they all return true.
-/// this is more or less boiler plate from the shared entity conditions system, but adapted for healing
-/// I did it as a private boolean instead of a public because I figured if I more or less maintained
-/// the same structure as the HasDamage Argument I could get it to work with enough effort
+/// New for Persistence
 
     private bool CheckConditions(Entity<HealingComponent> healing, EntityUid target)
     {

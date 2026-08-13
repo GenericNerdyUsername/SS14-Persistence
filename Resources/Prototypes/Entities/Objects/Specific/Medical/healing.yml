@@ -12,7 +12,7 @@
   # Inherited
   - type: StaticPrice
     price: 0
-
+# everything in conditions is new for Persistence
 - type: entity
   name: ointment
   description: Used to treat those nasty burns. Less effective on caustic burns.
@@ -68,7 +68,7 @@
   - type: Stack
     stackType: Ointment
     count: 1
-
+# everything in conditions is new for Persistence
 - type: entity
   name: regenerative mesh
   description: Used to treat even the nastiest burns. Also effective against caustic burns.
@@ -119,7 +119,7 @@
   - type: Stack
     stackType: RegenerativeMesh
     count: 1
-
+# everything in conditions is new for Persistence
 - type: entity
   name: bruise pack
   description: A therapeutic gel pack and bandages designed to treat blunt-force trauma.
@@ -171,7 +171,7 @@
   - type: Stack
     stackType: Brutepack
     count: 1
-
+# everything in conditions is new for Persistence
 - type: entity
   name: medicated suture
   description: A suture soaked in medicine, treats blunt-force trauma effectively and closes wounds.
@@ -303,7 +303,7 @@
         params:
           volume: 1.0
           variation: 0.125
-
+# everything in conditions is new for Persistence
 - type: entity
   name: roll of gauze
   description: Some sterile gauze to wrap around bloody stumps.

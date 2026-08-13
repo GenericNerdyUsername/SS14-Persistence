@@ -151,6 +151,12 @@ public record struct EntityConditionEvent<T>(T Condition) where T : EntityCondit
     /// </summary>
     public readonly T Condition = Condition;
 }
+/// <summary>
+/// New for Peristence14
+/// This is used over in HealingSystems to let us use entity conditions to limit topicals.
+/// It could PROBABLY be replaced with TryConditions, but I've beat my head against this wall enough.
+/// </summary>
+
 public sealed class GiveMeConditions : EntitySystem
 {
     [Dependency] private readonly SharedEntityConditionsSystem _conditions = default!;

@@ -17,8 +17,9 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectWoozy
         time: 20.0
-
-#For for posterity sake if the metabolism rate was changed from the base reagent of 0.5u/s it'll show at 0.05, and the type:HealthChange was simply dived by 10. So for Dylovene here deleting the 0.05 metabolismrate and settning the typehealtchange to -1 would restore it to a prenerf state.
+#Essentially all of this file is new for Persistence 14
+#For for posterity sake if the metabolism rate was changed from the base reagent of 0.5u/s it'll show at 0.05, and the type:HealthChange was simply dived by 10.
+#So for Dylovene here deleting the 0.05 metabolismrate and settning the typehealtchange to -1 would restore it to a prenerf state.
 - type: reagent
   id: Dylovene
   name: reagent-name-dylovene
@@ -404,7 +405,7 @@
         component: IgnoreSlowOnDamage
         time: 5 # lingers less than hivemind reagent to give it a niche
 
-#lol this means that for 1 u of hyronalin you roll the vomit change 20 times. You're gonna vomit.
+
 
 - type: reagent
   id: Hyronalin
@@ -505,7 +506,7 @@
             Heat: -0.033
             Shock: -0.033
             Cold: -0.033
-      - !type:SatiateThirst #tf kelotane satiates thirst? The more you know. Wait i'm just stupid. It satiates for negative 10.
+      - !type:SatiateThirst
         factor: -10
         conditions:
         - !type:ReagentCondition
@@ -666,7 +667,7 @@
         conditions:
         - !type:ReagentCondition
           reagent: PolypyryliumOligomers
-          min: 30 #probably should lower that OD, and a few others, before finalizing the PR.
+          min: 30
         damage:
           types:
             Asphyxiation: 3.5
@@ -874,7 +875,7 @@
       # what the hell, this isn't satiating at all!!
       - !type:SatiateHunger
         factor: -1
-
+  # new for persistence omni doesn't have a cellular heal upstream
   # Should heal quite literally everything, use in very small amounts
 - type: reagent
   id: Omnizine
