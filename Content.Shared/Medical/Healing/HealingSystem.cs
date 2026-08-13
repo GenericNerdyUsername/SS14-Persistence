@@ -115,7 +115,7 @@ public sealed class HealingSystem : EntitySystem
         _audio.PlayPredicted(healing.HealingEndSound, target.Owner, args.User);
 
         // Logic to determine the whether or not to repeat the healing action
-        args.Repeat = HasDamage((args.Used.Value, healing), target) && !dontRepeat;
+        args.Repeat = !dontRepeat && HasDamage((args.Used.Value, healing), target) && CheckConditions((args.Used.Value, healing), target);
         args.Handled = true;
 
         if (!args.Repeat)
@@ -241,9 +241,9 @@ public sealed class HealingSystem : EntitySystem
 /// I did it as a private boolean instead of a public because I figured if I more or less maintained
 /// the same structure as the HasDamage Argument I could get it to work with enough effort
 
-    private bool CheckConditions(Entity<HealingComponent> healing, Entity<DamageableComponent?> target)
+    private bool CheckConditions(Entity<HealingComponent> healing, EntityUid target)
     {
-        if (healing.Comp.Conditions != null && !_entityConditions.TryConditions(target.Owner, healing.Comp.Conditions))
+        if (healing.Comp.Conditions != null && !_entityConditions.TryConditions(target, healing.Comp.Conditions))
             return false;
 
         return true;
