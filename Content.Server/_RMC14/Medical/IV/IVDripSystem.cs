@@ -6,6 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server.Body.Components;
 using Content.Server.Chat.Systems;
 using Content.Shared._RMC14.Medical.IV;
+using Content.Shared.Body.Components;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -108,7 +109,7 @@ public sealed class IVDripSystem : SharedIVDripSystem
                     // 4. Inject Chems -> Chem Stream
                     if (chems.Volume > 0)
                     {
-                        if (_solutionContainer.TryGetSolution(attachedTo, bsComp.ChemicalSolutionName, out var chemSolEnt, out var chemSol) &&
+                        if (_solutionContainer.TryGetSolution(attachedTo, bsComp.MetabolitesSolutionName, out var chemSolEnt, out var chemSol) &&
                             chemSol.AvailableVolume >= chems.Volume)
                         {
                             _solutionContainer.TryAddSolution(chemSolEnt.Value, chems);
@@ -183,7 +184,7 @@ public sealed class IVDripSystem : SharedIVDripSystem
                     // 4. Inject Chems -> Chem Stream
                     if (chems.Volume > 0)
                     {
-                        if (_solutionContainer.TryGetSolution(attachedTo, bsComp.ChemicalSolutionName, out var chemSolEnt, out var chemSol) &&
+                        if (_solutionContainer.TryGetSolution(attachedTo, bsComp.MetabolitesSolutionName, out var chemSolEnt, out var chemSol) &&
                             chemSol.AvailableVolume >= chems.Volume)
                         {
                             _solutionContainer.TryAddSolution(chemSolEnt.Value, chems);

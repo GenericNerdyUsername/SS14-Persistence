@@ -165,7 +165,6 @@
       - id: Ointment
       - id: Gauze
       - id: EmergencyMedipen
-      - id: ParamedHypo
 
 - type: entity
   id: ClothingBeltPlantFilled
@@ -177,7 +176,7 @@
     - id: HydroponicsToolMiniHoe
     - id: HydroponicsToolSpade
     - id: HydroponicsToolClippers
-    - id: RobustHarvestChemistryBottle
+    - id: ChemistryBottleRobustHarvest
 
 - type: entity
   id: ClothingBeltSheathFilled
@@ -217,11 +216,11 @@
   components:
   - type: StorageFill
     contents:
-      - id: EpinephrineChemistryBottle
+      - id: ChemistryBottleEpinephrine
         amount: 2
-      - id: EphedrineChemistryBottle
+      - id: ChemistryBottleEphedrine
         amount: 2
-      - id: OmnizineChemistryBottle
+      - id: ChemistryBottleOmnizine
       - id: MedkitCombatFilled
 
 - type: entity
@@ -243,7 +242,7 @@
   components:
   - type: StorageFill
     contents:
-        - id: WeaponEnergyRevolver
+        - id: WeaponDisabler
 
 - type: entity
   id: ClothingBeltChefFilled
