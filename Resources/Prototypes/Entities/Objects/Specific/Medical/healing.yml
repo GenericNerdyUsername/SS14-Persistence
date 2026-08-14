@@ -62,7 +62,6 @@
   id: Ointment1
   parent: Ointment
   suffix: Single
-  worksondead: false
   components:
   - type: Stack
     stackType: Ointment
@@ -125,7 +124,6 @@
   parent: BaseHealingItem
   id: Brutepack
   suffix: Full
-  worksondead: false
   components:
   - type: Tag
     tags:
@@ -165,7 +163,6 @@
   id: Brutepack1
   parent: Brutepack
   suffix: Single
-  worksondead: false
   components:
   - type: Stack
     stackType: Brutepack
