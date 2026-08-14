@@ -19,7 +19,6 @@
   parent: BaseHealingItem
   id: Ointment
   suffix: Full
-  worksondead: false
   components:
   - type: Tag
     tags:
