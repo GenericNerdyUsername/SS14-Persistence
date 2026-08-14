@@ -1,9 +1,5 @@
 food-sequence-content-eye = eye
-food-sequence-content-tongue = tongue
 food-sequence-content-appendix = appendix
-food-sequence-content-ears = ear
 food-sequence-content-lungs = lung
 food-sequence-content-heart = heart
-food-sequence-content-stomach = stomach
-food-sequence-content-liver = liver
 food-sequence-content-kidneys = kidney
