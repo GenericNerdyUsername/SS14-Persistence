@@ -16,6 +16,9 @@ public sealed partial class SharedEntityConditionsSystem : EntitySystem, IEntity
     /// <param name="target">Target entity we're checking conditions on</param>
     /// <param name="conditions">Conditions we're checking</param>
     /// <returns>Returns true if all conditions return true, false if any fail</returns>
+
+    [Dependency] private readonly SharedEntityConditionsSystem _conditions = default!;
+
     public bool TryConditions(EntityUid target, EntityCondition[]? conditions)
     {
         // If there's no conditions we can't fail any of them...
@@ -24,7 +27,7 @@ public sealed partial class SharedEntityConditionsSystem : EntitySystem, IEntity
 
         foreach (var condition in conditions)
         {
-            if (!TryCondition(target, condition))
+            if (!_conditions.TryCondition(target, condition))
                 return false;
         }
 
@@ -150,25 +153,4 @@ public record struct EntityConditionEvent<T>(T Condition) where T : EntityCondit
     /// The Condition being raised in this event
     /// </summary>
     public readonly T Condition = Condition;
-}
-/// <summary>
-/// New for Peristence14
-/// This is used over in HealingSystems to let us use entity conditions to limit topicals.
-/// It could PROBABLY be replaced with TryConditions, but I've beat my head against this wall enough.
-/// </summary>
-
-public sealed class GiveMeConditions : EntitySystem
-{
-    [Dependency] private readonly SharedEntityConditionsSystem _conditions = default!;
-
-    public bool CheckConditions(EntityUid target, EntityCondition[] conditions)
-    {
-        foreach (var condition in conditions)
-        {
-            if (!_conditions.TryCondition(target, condition))
-                return false;
-        }
-
-        return true;
-    }
 }

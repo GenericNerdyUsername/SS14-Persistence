@@ -111,7 +111,7 @@ public sealed class HealingSystem : EntitySystem
         _audio.PlayPredicted(healing.HealingEndSound, target.Owner, args.User);
         //New for Persistence
         // Logic to determine the whether or not to repeat the healing action
-        args.Repeat = !dontRepeat && HasDamage((args.Used.Value, healing), target) && CheckConditions((args.Used.Value, healing), target);
+        args.Repeat = !dontRepeat && HasDamage((args.Used.Value, healing), target) && TryConditions((args.Used.Value, healing), target);
         args.Handled = true;
 
         if (!args.Repeat)
@@ -198,7 +198,7 @@ public sealed class HealingSystem : EntitySystem
             _popupSystem.PopupClient(Loc.GetString("medical-item-cant-use", ("item", healing.Owner)), healing, user);
             return false;
         }
-        if (!CheckConditions(healing, target))
+        if (!TryConditions(healing, target))
         {
             _popupSystem.PopupClient(Loc.GetString("topical-isn't-appropriate", ("item", healing.Owner)), healing, user);
             return false;
@@ -233,7 +233,7 @@ public sealed class HealingSystem : EntitySystem
     }
 /// New for Persistence
 
-    private bool CheckConditions(Entity<HealingComponent> healing, EntityUid target)
+    private bool TryConditions(Entity<HealingComponent> healing, EntityUid target)
     {
         if (healing.Comp.Conditions != null && !_entityConditions.TryConditions(target, healing.Comp.Conditions))
             return false;
