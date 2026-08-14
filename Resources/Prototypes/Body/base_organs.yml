@@ -21,6 +21,9 @@
   parent: BaseItem
   components:
   - type: Organ
+  - type: Tag # Added this to put organs into trash bag, Modified for Persistence14
+    tags:
+    - Trash
   - type: InedibleFoodSequenceElement # Persistence 14
     volume: 5
     reagents:
