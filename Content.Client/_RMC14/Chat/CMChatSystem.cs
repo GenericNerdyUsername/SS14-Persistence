@@ -9,7 +9,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client._RMC14.Chat;
 
-public sealed class CMChatSystem : SharedCMChatSystem
+public sealed class CMChatSystem : EntitySystem // Persistence: SharedCMChatSystem < EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _config = default!;
 

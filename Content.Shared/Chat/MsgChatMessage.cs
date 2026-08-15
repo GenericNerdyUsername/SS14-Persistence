@@ -38,11 +38,7 @@ namespace Content.Shared.Chat
         public string? AudioPath;
         public float AudioVolume;
 
-        // Start Persistence: Chat stacking from RMC14 - pull/7587
-        public bool HidePopup;
-        public string? SpeechStyleClass;
-        public bool RepeatCheckSender;
-        // End Persistence
+        public bool RepeatCheckSender; // Persistence: Chat stacking from RMC14 - pull/7587
 
         [NonSerialized]
         public bool Read;
@@ -58,11 +54,7 @@ namespace Content.Shared.Chat
             MessageColorOverride = colorOverride;
             AudioPath = audioPath;
             AudioVolume = audioVolume;
-            // Start Persistence: Chat stacking from RMC14 - pull/7587
-            HidePopup = hidePopup;
-            SpeechStyleClass = speechStyleClass;
-            RepeatCheckSender = repeatCheckSender;
-            // End Persistence
+            RepeatCheckSender = repeatCheckSender; // Persistence: Chat stacking from RMC14 - pull/7587
         }
     }
 
