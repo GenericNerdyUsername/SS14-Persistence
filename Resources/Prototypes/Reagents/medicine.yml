@@ -1285,7 +1285,7 @@
       - !type:HealthChange
         damage:
           types:
-            Shock: -0.15 # 6 per u
+            Shock: -1.5 # 6 per u
       - !type:AdjustReagent
         reagent: Licoxide
         amount: -2
