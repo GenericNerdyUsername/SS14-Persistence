@@ -122,7 +122,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -0.1
+            Poison: -0.01
 
 - type: reagent
   id: Arithrazine
@@ -177,7 +177,8 @@
         - !type:ReagentCondition
           reagent: Bicaridine
           min: 15
-      - !type:Drunk
+      #- !type:Drunk #disabled until i can make it work better
+
 
 #oh hey cryo meds how's it hanging? No nerf hammer for you.
 
