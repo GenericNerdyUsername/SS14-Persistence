@@ -109,7 +109,20 @@ public sealed class IVDripSystem : SharedIVDripSystem
                     // 4. Inject Chems -> Chem Stream
                     if (chems.Volume > 0)
                     {
-                        if (_solutionContainer.TryGetSolution(attachedTo, bsComp.MetabolitesSolutionName, out var chemSolEnt, out var chemSol) &&
+                        // Begin Persistence: Prevent OD from IV drip
+                        var someChemsAlreadyInBloodstream = false;
+                        // Only inject reagents that aren't currently present in the bloodstream
+                        foreach (var reagent in chems.Contents)
+                        {
+                            if (streamSol.TryGetReagent(reagent.Reagent, out var _))
+                            {
+                                someChemsAlreadyInBloodstream = true;
+                                break;
+                            }
+                        }
+
+                        if (!someChemsAlreadyInBloodstream && // End Persistence
+                            _solutionContainer.TryGetSolution(attachedTo, bsComp.MetabolitesSolutionName, out var chemSolEnt, out var chemSol) &&
                             chemSol.AvailableVolume >= chems.Volume)
                         {
                             _solutionContainer.TryAddSolution(chemSolEnt.Value, chems);
