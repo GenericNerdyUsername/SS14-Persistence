@@ -92,7 +92,7 @@
         Caustic: -10
     conditions:
       - !type:DamageThreshold
-        min: 190
+        min: 180
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
       params:
@@ -193,7 +193,7 @@
         Slash: -10
     conditions:
       - !type:DamageThreshold
-        min: 190
+        min: 180
     bloodlossModifier: -10 # a suture should stop ongoing bleeding
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"

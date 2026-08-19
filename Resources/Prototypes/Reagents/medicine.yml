@@ -122,7 +122,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -0.1
+            Poison: -0.01
 
 - type: reagent
   id: Arithrazine
@@ -177,7 +177,8 @@
         - !type:ReagentCondition
           reagent: Bicaridine
           min: 15
-      - !type:Drunk
+      #- !type:Drunk #disabled until i can make it work better
+
 
 #oh hey cryo meds how's it hanging? No nerf hammer for you.
 
@@ -1148,7 +1149,7 @@
         damage:
           types:
             Piercing: -0.25 # 10 per u
-            Radiation: 0.005 # 0.2 per u, 3 for 15u
+            Radiation: 0.02 # 0.02 per u, 3 for 15u
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -1174,6 +1175,7 @@
         damage:
           types:
             Blunt: -0.225 # 9 per u
+            Cold: 0.02 # 0.02 per u or 0.2 per 10
       - !type:SatiateHunger
         factor: -1
       - !type:HealthChange
