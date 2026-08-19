@@ -122,7 +122,7 @@ public sealed class IVDripSystem : SharedIVDripSystem
                         }
 
                         if (!someChemsAlreadyInBloodstream && // End Persistence
-                            _solutionContainer.TryGetSolution(attachedTo, bsComp.MetabolitesSolutionName, out var chemSolEnt, out var chemSol) &&
+                            _solutionContainer.TryGetSolution(attachedTo, bsComp.BloodSolutionName, out var chemSolEnt, out var chemSol) &&
                             chemSol.AvailableVolume >= chems.Volume)
                         {
                             _solutionContainer.TryAddSolution(chemSolEnt.Value, chems);
