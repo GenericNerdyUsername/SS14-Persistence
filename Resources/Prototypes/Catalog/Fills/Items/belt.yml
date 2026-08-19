@@ -47,6 +47,16 @@
         - id: GasAnalyzer
         - id: trayScanner
 
+- type: entityTable
+  id: BeltSecurityEntityTable
+  table: !type:AllSelector
+    children:
+    - id: Stunbaton
+    - id: Handcuffs
+      amount: 2
+    - id: HoloprojectorSecurity
+    - id: RadioHandheldSecurity
+
 - type: entity
   id: ClothingBeltSecurityFilled
   parent: ClothingBeltSecurity
