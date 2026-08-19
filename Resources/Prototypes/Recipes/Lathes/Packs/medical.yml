@@ -64,6 +64,7 @@
   recipes:
   - ClothingHandsGlovesLatex
   - ClothingHandsGlovesNitrile
+  - ClothingHandsGlovesNitrileForensic
   - ClothingMaskSterile
 
 # These are all empty
