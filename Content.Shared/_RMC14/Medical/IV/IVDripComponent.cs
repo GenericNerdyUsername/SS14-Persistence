@@ -29,7 +29,7 @@ public sealed partial class IVDripComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan TransferDelay = TimeSpan.FromSeconds(3);
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    [AutoNetworkedField, AutoPausedField] // Persistence: Removed DataField(customTypeSerializer: typeof(TimeOffsetSerializer))
     public TimeSpan TransferAt;
 
     [DataField, AutoNetworkedField]

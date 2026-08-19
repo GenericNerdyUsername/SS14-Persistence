@@ -36,7 +36,7 @@ public sealed partial class BloodPackComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan TransferDelay = TimeSpan.FromSeconds(3);
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    [AutoNetworkedField, AutoPausedField] // Persistence: removed DataField(customTypeSerializer: typeof(TimeOffsetSerializer)),
     public TimeSpan TransferAt;
 
     [DataField, AutoNetworkedField]
