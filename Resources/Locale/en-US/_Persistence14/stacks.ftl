@@ -1,3 +1,3 @@
 ### Descriptions for Persistence 14 Stacks ###
 
-stack-necrospray = necrospray1
+stack-necrospray = Necrospray
