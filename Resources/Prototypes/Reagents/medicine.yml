@@ -1031,6 +1031,7 @@
   color: "#b0abaa"
   metabolisms:
     Bloodstream:
+      metabolismRate: 0.1 ###changed from 0.5 to make it last longer###
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
@@ -1040,7 +1041,7 @@
         conditions:
         - !type:ReagentCondition
           reagent: Diphenylmethylamine
-          min: 5
+          min: 1 ###lowered from 5 so a basic 5u pill with now grant 40 seconds of narcolepsy protection instead of you know 1 second####
       - !type:PopupMessage
         visualType: Medium
         messages: ["ethyloxyephedrine-effect-feeling-awake", "ethyloxyephedrine-effect-clear-mind"]
