@@ -250,7 +250,7 @@ public sealed class ActionContainerSystem : EntitySystem
             RemoveAction((ent, ent));
     
         DebugTools.AssertOwner(uid, comp);
-        if(comp.Container == null)
+        if(comp != null && comp.Container == null)
             return false;
         comp ??= EnsureComp<ActionsContainerComponent>(uid);
         if (!_container.Insert(ent.Owner, comp.Container))
