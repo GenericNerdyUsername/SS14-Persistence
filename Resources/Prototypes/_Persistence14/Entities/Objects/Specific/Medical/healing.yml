@@ -17,7 +17,11 @@
     - type: Item
       size: Small
       sprite: _Persistence14/Objects/Specific/Medical/necrospray.rsi
-      state: [necrospray-inhand-left, necrospray-inhand-right]
+      inhandVisuals:
+        left:
+          - state: necrospray-inhand-left
+        right:
+          - state: necrospray-inhand-right
       heldPrefix: necrospray
     - type: Healing
       damageContainers:
@@ -52,7 +56,7 @@
       price: 0
     - type: StackPrice
       price: 0
-
+# Single stack
 - type: entity
   id: Necrospray1
   parent: Necrospray

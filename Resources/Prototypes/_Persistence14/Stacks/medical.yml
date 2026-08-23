@@ -6,4 +6,4 @@
   id: Necrospray
   name: stack-necrospray
   icon: {sprite: "_Persistence14/Objects/Specific/Medical/necrospray.rsi", state: necrospray}
-  spawn: necrospray
+  spawn: necrospray1
