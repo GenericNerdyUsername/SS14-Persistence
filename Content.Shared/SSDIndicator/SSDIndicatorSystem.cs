@@ -1,4 +1,5 @@
 using Content.Shared.CCVar;
+using Content.Shared.Movement.Events; // Persistence: SSD Command
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -26,6 +27,7 @@ public sealed class SSDIndicatorSystem : EntitySystem
         SubscribeLocalEvent<SSDIndicatorComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<SSDIndicatorComponent, PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<SSDIndicatorComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<SSDIndicatorComponent, MoveInputEvent>(OnEntityTryInput); // Persistence: SSD Command
 
         _cfg.OnValueChanged(CCVars.ICSSDSleep, obj => _icSsdSleep = obj, true);
         _cfg.OnValueChanged(CCVars.ICSSDSleepTime, obj => _icSsdSleepTime = obj, true);
@@ -33,29 +35,15 @@ public sealed class SSDIndicatorSystem : EntitySystem
 
     private void OnPlayerAttached(EntityUid uid, SSDIndicatorComponent component, PlayerAttachedEvent args)
     {
-        component.IsSSD = false;
-
-        // Removes force sleep and resets the time to zero
-        if (_icSsdSleep)
-        {
-            component.FallAsleepTime = TimeSpan.Zero;
-            _statusEffects.TryRemoveStatusEffect(uid, StatusEffectSSDSleeping);
-        }
-
-        Dirty(uid, component);
+        // Persistence: SSD Command
+        StopSSD(uid, component);
     }
 
     private void OnPlayerDetached(EntityUid uid, SSDIndicatorComponent component, PlayerDetachedEvent args)
     {
-        component.IsSSD = true;
-
-        // Sets the time when the entity should fall asleep
-        if (_icSsdSleep)
-        {
-            component.FallAsleepTime = _timing.CurTime + TimeSpan.FromSeconds(_icSsdSleepTime);
-        }
-
-        Dirty(uid, component);
+        // Persistence: SSD Command
+        component.ManualSSD = false;
+        StartSSD(uid, component);
     }
 
     // Prevents mapped mobs to go to sleep immediately
@@ -92,5 +80,77 @@ public sealed class SSDIndicatorSystem : EntitySystem
             ssd.NextUpdate += ssd.UpdateInterval;
             Dirty(uid, ssd);
         }
+    }
+
+    /// <summary>
+    /// Persistence: Set the given entity as SSD
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="component"></param>
+    public void StartSSD(EntityUid uid, SSDIndicatorComponent component)
+    {
+        component.IsSSD = true;
+
+        // Sets the time when the entity should fall asleep
+        if (_icSsdSleep)
+        {
+            component.FallAsleepTime = _timing.CurTime + TimeSpan.FromSeconds(_icSsdSleepTime);
+        }
+
+        Dirty(uid, component);
+    }
+
+    /// <summary>
+    /// Persistence: Set the given entity as not SSD
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="component"></param>
+    public void StopSSD(EntityUid uid, SSDIndicatorComponent component)
+    {
+        component.IsSSD = false;
+
+        // Removes force sleep and resets the time to zero
+        if (_icSsdSleep)
+        {
+            component.FallAsleepTime = TimeSpan.Zero;
+            _statusEffects.TryRemoveStatusEffect(uid, StatusEffectSSDSleeping);
+        }
+
+        Dirty(uid, component);
+    }
+
+    /// <summary>
+    /// Persistence: Toggle SSD state & use ManualSSD flag.
+    /// </summary>
+    /// <param name="uid"></param>
+    public void ToggleManualSSD(EntityUid uid)
+    {
+        if (!TryComp<SSDIndicatorComponent>(uid, out var component))
+            return;
+
+        if (component.IsSSD)
+        {
+            component.ManualSSD = false;
+            StopSSD(uid, component);
+        }
+        else
+        {
+            component.ManualSSD = true;
+            StartSSD(uid, component);
+        }
+    }
+
+    /// <summary>
+    /// Persistence: Disables SSD on SSD entities that attempt to move.
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="component"></param>
+    /// <param name="args"></param>
+    private void OnEntityTryInput(EntityUid uid, SSDIndicatorComponent component, MoveInputEvent args)
+    {
+        if (!component.IsSSD)
+            return;
+
+        ToggleManualSSD(uid);
     }
 }
