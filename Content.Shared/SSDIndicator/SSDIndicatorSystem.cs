@@ -1,10 +1,12 @@
 using Content.Shared.CCVar;
 using Content.Shared.Movement.Events; // Persistence: SSD Command
 using Content.Shared.StatusEffectNew;
+using Content.Shared.Verbs; // Persistence: SSD Verb
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility; // Persistence: SSD Verb
 
 namespace Content.Shared.SSDIndicator;
 
@@ -28,6 +30,7 @@ public sealed class SSDIndicatorSystem : EntitySystem
         SubscribeLocalEvent<SSDIndicatorComponent, PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<SSDIndicatorComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SSDIndicatorComponent, MoveInputEvent>(OnEntityTryInput); // Persistence: SSD Command
+        SubscribeLocalEvent<SSDIndicatorComponent, GetVerbsEvent<Verb>>(GetVerb); // Persistence: SSD Verb
 
         _cfg.OnValueChanged(CCVars.ICSSDSleep, obj => _icSsdSleep = obj, true);
         _cfg.OnValueChanged(CCVars.ICSSDSleepTime, obj => _icSsdSleepTime = obj, true);
@@ -152,5 +155,25 @@ public sealed class SSDIndicatorSystem : EntitySystem
             return;
 
         ToggleManualSSD(uid);
+    }
+
+    /// <summary>
+    /// Persistence: Adds the manual SSD verb to uid when args.User == uid
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="component"></param>
+    /// <param name="args"></param>
+    private void GetVerb(EntityUid uid, SSDIndicatorComponent component, GetVerbsEvent<Verb> args)
+    {
+        if (args.User != uid)
+            return;
+
+        args.Verbs.Add(new Verb
+        {
+            Act = () => ToggleManualSSD(uid),
+            Text = Loc.GetString("verb-manual-ssd-label"),
+            Message = Loc.GetString("cmd-ssd-desc"),
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Effects/ssd.rsi/default0-blue.png")),
+        });
     }
 }
