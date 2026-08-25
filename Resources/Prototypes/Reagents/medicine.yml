@@ -1031,6 +1031,7 @@
   color: "#b0abaa"
   metabolisms:
     Bloodstream:
+      metabolismRate: 0.1 ###changed from 0.5 to make it last longer###
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
@@ -1040,7 +1041,7 @@
         conditions:
         - !type:ReagentCondition
           reagent: Diphenylmethylamine
-          min: 5
+          min: 1 ###lowered from 5 so a basic 5u pill with now grant 40 seconds of narcolepsy protection instead of you know 1 second####
       - !type:PopupMessage
         visualType: Medium
         messages: ["ethyloxyephedrine-effect-feeling-awake", "ethyloxyephedrine-effect-clear-mind"]
@@ -1296,7 +1297,7 @@
         amount: -2
       # makes you a little chilly when not oding
       - !type:AdjustTemperature
-        amount: -2500
+        amount: -420
       # od makes you freeze to death
       - !type:HealthChange
         conditions:
@@ -1311,7 +1312,7 @@
         - !type:ReagentCondition
           reagent: Insuzine
           min: 12
-        amount: -30000
+        amount: -5000
       - !type:Jitter
         conditions:
         - !type:ReagentCondition
