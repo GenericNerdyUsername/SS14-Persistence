@@ -168,11 +168,19 @@ public sealed class SSDIndicatorSystem : EntitySystem
         if (args.User != uid)
             return;
 
+        var label = "verb-manual-ssd-label-off";
+        var desc = "verb-manual-ssd-desc-off";
+        if (component.IsSSD)
+        {
+            label = "verb-manual-ssd-label-on";
+            desc = "verb-manual-ssd-desc-on";
+        }
+
         args.Verbs.Add(new Verb
         {
             Act = () => ToggleManualSSD(uid),
-            Text = Loc.GetString("verb-manual-ssd-label"),
-            Message = Loc.GetString("cmd-ssd-desc"),
+            Text = Loc.GetString(label),
+            Message = Loc.GetString(desc),
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Effects/ssd.rsi/default0-blue.png")),
         });
     }
