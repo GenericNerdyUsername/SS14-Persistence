@@ -1,1 +1,1 @@
-topical-isn't-appropriate = Can't use that now!
+topical-isnt-appropriate = Can't use that now!
