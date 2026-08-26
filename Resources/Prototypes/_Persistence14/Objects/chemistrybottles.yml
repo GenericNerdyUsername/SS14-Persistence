@@ -1,0 +1,15 @@
+- type: entity
+  id: ChemistryBottlePainkillerMedicine
+  suffex: Pain Medication
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-medicine-painkiller
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MedicinePainkiller
+          Quantity: 30
+

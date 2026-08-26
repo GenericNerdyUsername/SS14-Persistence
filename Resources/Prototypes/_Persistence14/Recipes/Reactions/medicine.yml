@@ -45,3 +45,16 @@
       amount: 1
   products:
     Noxapyrone: 2
+
+- type: reaction
+  id: MedicinePainkiller
+  reactants:
+    Psicodine:
+      amount: 8
+    Bicaridine:
+      amount: 6
+    ChloralHydrate:
+      amount: 1
+  products:
+    MedicinePainkiller: 15
+

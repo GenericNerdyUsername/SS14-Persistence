@@ -37,3 +37,54 @@
             types:
               Heat: -2
               Radiation: -2
+
+- type: reagent
+  id: MedicinePainkiller
+  name: reagent-name-medicine-painkiller
+  group: Medicine
+  desc: reagent-desc-medicine-painkiller
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: medicine
+  color: "#9c7938"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.01
+      effects:
+      - !type:GenericStatusEffect
+        key: Adrenaline # Guess what epinephrine is...
+        component: IgnoreSlowOnDamage
+        time: 5
+        conditions:
+          - !type:ReagentCondition
+            reagent: MedicinePainkiller
+            max: 34
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 1
+        type: add
+        conditions:
+          - !type:ReagentCondition
+            reagent: MedicinePainkiller
+            min: 35
+      - !type:HealthChange # Don't abuse painkillers kids
+        conditions:
+          - !type:ReagentCondition
+            reagent: MedicinePainkiller
+            min: 35
+        damage:
+          types:
+            Poison: .1
+            Asphyxiation: .8
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        conditions:
+        - !type:ReagentCondition
+          reagent: MedicinePainkiller
+          min: 50
+      - !type:PopupMessage # we dont have sanity/mood so this will have to do
+        type: Local
+        visualType: Medium
+        messages:
+        - "painkiller-medicine-effect-painfree"
+        - "painkiller-medicine-effect-drowsy"
+        probability: 0.15
