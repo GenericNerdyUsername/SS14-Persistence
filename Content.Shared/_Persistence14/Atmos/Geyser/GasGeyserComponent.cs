@@ -1,6 +1,7 @@
 using Content.Shared.Atmos;
 using Content.Shared.MiningFluid.Components;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Persistence14.Atmos.Geyser;
 
@@ -10,7 +11,7 @@ public sealed partial class GasGeyserComponent : Component
     /// <summary>
     /// Game time
     /// </summary>
-    [AutoPausedField, AutoNetworkedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField, AutoNetworkedField]
     public TimeSpan NextEruptionTime = TimeSpan.Zero;
 
     /// <summary>
