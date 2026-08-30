@@ -8,9 +8,9 @@ namespace Content.Shared._Persistence14.Atmos.Geyser;
 public sealed partial class GasGeyserComponent : Component
 {
     /// <summary>
-    /// Game time 
+    /// Game time
     /// </summary>
-    [DataField, AutoPausedField, AutoNetworkedField]
+    [AutoPausedField, AutoNetworkedField]
     public TimeSpan NextEruptionTime = TimeSpan.Zero;
 
     /// <summary>
@@ -20,13 +20,13 @@ public sealed partial class GasGeyserComponent : Component
     public TimeSpan EruptionDelay = TimeSpan.FromSeconds(60);
 
     /// <summary>
-    /// Amount of time added to <see cref="EruptionDelay"/> to get the maximum delay. 
+    /// Amount of time added to <see cref="EruptionDelay"/> to get the maximum delay.
     /// </summary>
     [DataField]
     public TimeSpan EruptionRangeDeltaPositive = TimeSpan.FromSeconds(0);
 
     /// <summary>
-    /// Amount of time subtracted from <see cref="EruptionDelay"/> to get the minimum delay. 
+    /// Amount of time subtracted from <see cref="EruptionDelay"/> to get the minimum delay.
     /// </summary>
     [DataField]
     public TimeSpan EruptionRangeDeltaNegative = TimeSpan.FromSeconds(0);
