@@ -54,7 +54,7 @@
       - material: UraniumGlass
         amount: 5
         doAfter: 1
-    
+
     #to phoron
     - to: phglass
       conditions:
@@ -317,7 +317,7 @@
       steps:
       - tool: Anchoring
         doAfter: 1
-  
+
   #phoron windoor nodes
   - node: phglass
     entity: WindoorAssemblyPhoron
@@ -693,7 +693,7 @@
         doAfter: 4
 
   - node: pwindoorSecure
-    entity: WindoorSecurePlasma
+    entity: WindoorPlasma
     doNotReplaceInheritingEntities: true
     actions:
     - !type:SetWiresPanelSecurity
@@ -771,7 +771,7 @@
         doAfter: 4
 
   - node: uwindoorSecure
-    entity: WindoorSecureUranium
+    entity: WindoorUranium
     doNotReplaceInheritingEntities: true
     actions:
     - !type:SetWiresPanelSecurity

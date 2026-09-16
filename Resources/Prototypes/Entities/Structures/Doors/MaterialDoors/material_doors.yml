@@ -69,14 +69,14 @@
 
 - type: entity
   parent: [ BaseMaterialDoorNavMap, StructureHealthDoorWeak ]
-  id: PlasmaDoor
-  name: plasma door
+  id: MetalDoor
+  name: metal door
   components:
   - type: Construction
     graph: DoorGraph
-    node: plasmaDoor
+    node: metalDoor
   - type: Damageable
-    damageModifierSet: PlasmaMod
+    damageModifierSet: SteelMod
   - type: Destructible
     thresholds:
     - trigger: &DamageDoorWeak
@@ -91,6 +91,33 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
+            min: 3
+            max: 5
+
+- type: entity
+  parent: [ BaseMaterialDoorNavMap, StructureHealthDoorWeak ]
+  id: PlasmaDoor
+  name: plasma door
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/MineralDoors/plasma_door.rsi
+  - type: Construction
+    graph: DoorGraph
+    node: plasmaDoor
+  - type: Damageable
+    damageModifierSet: PlasmaMod
+  - type: Destructible
+    thresholds:
+    - trigger: *DamageDoorWeak
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetPlasma1:
             min: 3
             max: 5
 

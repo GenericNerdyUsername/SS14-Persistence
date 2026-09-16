@@ -12,15 +12,10 @@
     size: Normal
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-      stain: # Funky: Footprints & Stains
-        maxVol: 5
+    - SolutionFiberClothes
+    - SolutionStain
   - type: Tag
     tags:
     - ClothMade

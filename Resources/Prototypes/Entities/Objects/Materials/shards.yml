@@ -210,14 +210,14 @@
       - Trash
   - type: Extractable
     grindableSolutionName: shardphglass
-  - type: SolutionContainerManager
-    solutions:
-      shardphglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 5
-        - ReagentId: Phoron
-          Quantity: .25
+  - type: Solution
+    id: shardphglass
+    solution:
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 5
+      - ReagentId: Phoron
+        Quantity: .25
   - type: Construction
     graph: PhoronShivConstruct
     node: start

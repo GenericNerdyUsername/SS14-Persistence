@@ -137,12 +137,12 @@
   - type: Appearance
   - type: Extractable
     grindableSolutionName: copper
-  - type: SolutionContainerManager
-    solutions:
-      copper:
-        reagents:
-        - ReagentId: Copper
-          Quantity: 10
+  - type: Solution
+    id: copper
+    solution:
+      reagents:
+      - ReagentId: Copper
+        Quantity: 10
 
 - type: entity
   parent: IngotCopper
@@ -187,12 +187,12 @@
   - type: Appearance
   - type: Extractable
     grindableSolutionName: tin
-  - type: SolutionContainerManager
-    solutions:
-      tin:
-        reagents:
-        - ReagentId: Tin
-          Quantity: 10
+  - type: Solution
+    id: tin
+    solution:
+      reagents:
+      - ReagentId: Tin
+        Quantity: 10
 
 - type: entity
   parent: IngotTin

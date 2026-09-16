@@ -174,9 +174,7 @@ public sealed partial class ConfirmButton : Button
                 OnConfirming?.Invoke(buttonEvent);
                 break;
             case false:
-                _nextCooldown = _gameTiming.CurTime + CooldownTime;
-                _nextReset = _gameTiming.CurTime + ResetTime;
-                Disabled = true;
+                OnPressed?.Invoke(buttonEvent);
                 break;
         }
     }

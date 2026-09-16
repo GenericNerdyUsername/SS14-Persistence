@@ -18,15 +18,10 @@
       Cloth: 150
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-      stain: # Funky: Footprints & Stains
-        maxVol: 5
+    - SolutionFiberClothesLarge
+    - SolutionStain
   - type: Tag
     tags:
     - ClothMade

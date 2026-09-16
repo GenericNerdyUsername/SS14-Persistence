@@ -100,15 +100,6 @@
   id: SinkWideWater
   parent: SinkWide
   suffix: Water
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drainBuffer:
-        maxVol: 100
-      tank:
-        reagents:
-        - ReagentId: Water
-          Quantity: 500
 
 #Stemless Sink
 

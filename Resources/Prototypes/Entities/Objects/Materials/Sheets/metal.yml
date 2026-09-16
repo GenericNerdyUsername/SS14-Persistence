@@ -252,12 +252,12 @@
   - type: Appearance
   - type: Extractable
     grindableSolutionName: titanium
-  - type: SolutionContainerManager
-    solutions:
-      titanium:
-        reagents:
-        - ReagentId: Titanium
-          Quantity: 10
+  - type: Solution
+    id: titanium
+    solution:
+      reagents:
+      - ReagentId: Titanium
+        Quantity: 10
 
 - type: entity
   parent: SheetTitanium
@@ -317,13 +317,13 @@
   - type: Appearance
   - type: Extractable
     grindableSolutionName: aluminium
-  - type: SolutionContainerManager
-    solutions:
-      aluminium:
-        reagents:
-        - ReagentId: Aluminium
-          Quantity: 10
-        canReact: false
+  - type: Solution
+    id: aluminum
+    solution:
+      reagents:
+      - ReagentId: Aluminium
+        Quantity: 10
+      canReact: false
 
 - type: entity
   parent: SheetAluminium
@@ -383,14 +383,14 @@
   - type: Appearance
   - type: Extractable
     grindableSolutionName: bronze
-  - type: SolutionContainerManager
-    solutions:
-      bronze:
-        reagents:
-        - ReagentId: Copper
-          Quantity: 6.7
-        - ReagentId: Tin
-          Quantity: 3.3
+  - type: Solution
+    id: bronze
+    solution:
+      reagents:
+      - ReagentId: Copper
+        Quantity: 6.7
+      - ReagentId: Tin
+        Quantity: 3.3
 
 - type: entity
   parent: SheetBronze

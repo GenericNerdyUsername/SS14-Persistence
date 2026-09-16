@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: Clothing
+  parent: [ Clothing, SolutionStain ] # Persistence: Use SolutionStain for funky footprints and stains
   id: ClothingMaskBase
   components:
   - type: Sprite
@@ -12,10 +12,6 @@
   - type: StaticPrice
     price: 10
   - type: Appearance # Funky: Footprints & Stains
-  - type: SolutionContainerManager # Funky: Footprints & Stains
-    solutions:
-      stain:
-        maxVol: 5
   - type: Stainable # Funky: Footprints & Stains
     clothingVisuals:
       mask:
@@ -64,15 +60,10 @@
       Cloth: 50
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-      stain: # Funky: Footprints & Stains
-        maxVol: 5
+    - SolutionFiberClothes
+    - SolutionStain
   - type: Tag
     tags:
     - ClothMade

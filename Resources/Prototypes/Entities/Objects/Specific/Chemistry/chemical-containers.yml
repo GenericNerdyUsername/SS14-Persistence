@@ -9,10 +9,6 @@
   - type: Item
     size: Large
     sprite: Objects/Specific/Chemistry/jug.rsi
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 200
   - type: BountySolution
     solution: drink
   - type: SolutionContainerVisuals

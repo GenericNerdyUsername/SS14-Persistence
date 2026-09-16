@@ -17,15 +17,10 @@
     iconVisuals:
     - sprite: _Funkystation/Effects/blood.rsi
       state: outerclothing
-  - type: SolutionContainerManager # Funky: Footprints & Stains
+  - type: SolutionManager
     solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-      stain:
-        maxVol: 5
+    - SolutionFiberClothesLarge
+    - SolutionStain
   - type: StainBlocker # Funky: Footprints & Stains
     slots: [INNERCLOTHING]
 

@@ -337,21 +337,21 @@
         acts: [ "Destruction" ]
   - type: Extractable
     grindableSolutionName: phoronglass
-  - type: SolutionContainerManager
-    solutions:
-      phoronglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Plasma
-          Quantity: 6
-        - ReagentId: Bananium
-          Quantity: 6
-        - ReagentId: Titanium
-          Quantity: 3
-        - ReagentId: Phoron
-          Quantity: .5 # 1 phoron glass to 1 Phoron reagent, max expected yield with chem recipes of 1.1u
-        canReact: false
+  - type: Solution
+    id: phoronglass
+    solution:
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Plasma
+        Quantity: 6
+      - ReagentId: Bananium
+        Quantity: 6
+      - ReagentId: Titanium
+        Quantity: 3
+      - ReagentId: Phoron
+        Quantity: .5 # 1 phoron glass to 1 Phoron reagent, max expected yield with chem recipes of 1.1u
+      canReact: false
 
 - type: entity
   parent: SheetPhoronGlass
