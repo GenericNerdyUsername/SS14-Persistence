@@ -45,12 +45,6 @@
         layer:
         - WallLayer
         density: 4000
-  - type: PlacementReplacement
-    key: walls
-  - type: StructureAlignerPylon
-    pylons:
-    - Door
-    - Firelock
 
 - type: entity
   id: PlastitaniumWindowSquareBase
@@ -88,15 +82,21 @@
     messages: null
 
 - type: entity
-  parent: [ PlastitaniumWindowSquareBase, StructureHealthBarrierStrong ]
   id: PlastitaniumWindow
   name: plastitanium window
+  parent: PlastitaniumWindowSquareBase
   components:
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -109,6 +109,8 @@
           PartRodMetal:
             min: 1
             max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: DamageVisuals
     thresholds: [5, 10, 20]
     damageDivisor: 20
@@ -119,7 +121,8 @@
     fuelCost: 15
     doAfterDelay: 3
   - type: Damageable
-    damageModifierSet: PlastitaniumMod
+    damageContainer: StructuralInorganic
+    damageModifierSet: RGlass
 
 - type: entity
   id: PlastitaniumWindowDiagonalBase
@@ -175,14 +178,20 @@
 - type: entity
   id: PlastitaniumWindowDiagonal
   name: plastitanium window
-  parent: [ PlastitaniumWindowDiagonalBase, StructureHealthBarrierStrong ]
+  parent: PlastitaniumWindowDiagonalBase
   suffix: diagonal
   components:
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -195,6 +204,8 @@
           PartRodMetal:
             min: 1
             max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: DamageVisuals
     thresholds: [5, 10, 20]
     damageDivisor: 20
@@ -205,4 +216,5 @@
     fuelCost: 15
     doAfterDelay: 3
   - type: Damageable
-    damageModifierSet: PlastitaniumMod
+    damageContainer: StructuralInorganic
+    damageModifierSet: RGlass

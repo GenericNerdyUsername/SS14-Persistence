@@ -1,20 +1,30 @@
 - type: entity
   id: PlasmaWindow
   name: plasma window
-  parent: [BaseDeltaPressurePlasma, BaseWindowStructure, BaseRCDResistant, StructureHealthBarrier]
+  parent: [BaseDeltaPressurePlasma, WindowRCDResistant]
   components:
   - type: Sprite
+    drawdepth: WallTops
     sprite: Structures/Windows/plasma_window.rsi
   - type: Icon
     sprite: Structures/Windows/plasma_window.rsi
-    state: full
   - type: Damageable
-    damageModifierSet: GlassPlasmaMod
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -24,6 +34,8 @@
           ShardGlassPlasma:
             min: 1
             max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: IconSmooth
     base: pwindow
   - type: Construction
@@ -43,9 +55,13 @@
 
 - type: entity
   id: PlasmaWindowDirectional
-  parent: [BaseDeltaPressurePlasmaQuarter, BaseWindowStructureDirectional, BaseRCDResistant, StructureHealthBarrierWeak]
+  parent: [BaseDeltaPressurePlasmaQuarter, WindowDirectionalRCDResistant]
   name: directional plasma window
   description: Don't smudge up the glass down there.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Window
   components:
   - type: Sprite
     sprite: Structures/Windows/directional.rsi
@@ -63,13 +79,20 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
-  - type: Damageable
-    damageModifierSet: GlassPlasmaMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+    - trigger:
+        !type:DamageTrigger
+        damage: 37
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -79,41 +102,12 @@
           ShardGlassPlasma:
             min: 1
             max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: StaticPrice
     price: 50
   - type: RadiationBlocker
     resistance: 1
-
-- type: entity
-  parent: PlasmaWindowDirectional
-  id: PlasmaWindowDirectionalCorner
-  suffix: Corner
-  components:
-  - type: Sprite
-    sprite: Structures/Windows/directional.rsi
-    state: plasma_window_corner
-  - type: Icon
-    sprite: Structures/Windows/directional.rsi
-    state: plasma_window_corner
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,-0.28125,-0.28125"
-        density: 1500
-        mask:
-        - FullTileMask
-        layer:
-        - GlassLayer
-  - type: Construction
-    graph: WindowDirectionalCorner
-    node: plasmaWindowDirectionalCorner
-  - type: DamageVisuals
-    thresholds: [5, 10, 20]
-    trackAllDamage: true
-    damageOverlay:
-      sprite: Structures/Windows/cracks_directional_corner.rsi
 
 - type: entity
   parent: PlasmaWindow

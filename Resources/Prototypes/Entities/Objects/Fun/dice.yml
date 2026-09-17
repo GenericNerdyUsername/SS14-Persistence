@@ -150,6 +150,7 @@
   description: Some sort of two-sided die. Designed to represent the struggle between Nanotrasen and the Syndicate.
   components:
   - type: Sprite
+    sprite: Objects/Misc/coins.rsi
     state: d2_1
 
 - type: entity

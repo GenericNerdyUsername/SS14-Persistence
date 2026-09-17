@@ -5,12 +5,6 @@
   name: coin
   description: A flat bit of metal. If it was still in circulation, inflation would've made it worthless. Since it isn't, it's worth enough to keep in a book.
   components:
-  - type: Appearance
-  - type: Sprite
-    state: coin_1
-    layers:
-    - state: coin_1
-      map: ["base"]
   - type: Item
     size: Tiny
   - type: StackPrice
@@ -41,7 +35,7 @@
     - coin_1
     - coin_2
     - coin_3
-    - coin_4 
+    - coin_4
 
 - type: entity
   id: CoinIron
@@ -50,6 +44,10 @@
   components:
   - type: Sprite
     sprite: Objects/Misc/Coins/coin_iron.rsi
+    state: coin_1
+    layers:
+    - state: coin_1
+      map: ["base"]
   - type: PhysicalComposition
     materialComposition:
       Steel: 10
@@ -89,6 +87,10 @@
   components:
   - type: Sprite
     sprite: Objects/Misc/Coins/coin_silver.rsi
+    state: coin_1
+    layers:
+    - state: coin_1
+      map: ["base"]
   - type: PhysicalComposition
     materialComposition:
       Silver: 10
@@ -128,6 +130,10 @@
   components:
   - type: Sprite
     sprite: Objects/Misc/Coins/coin_gold.rsi
+    state: coin_1
+    layers:
+    - state: coin_1
+      map: ["base"]
   - type: PhysicalComposition
     materialComposition:
       Gold: 10
@@ -167,6 +173,10 @@
   components:
   - type: Sprite
     sprite: Objects/Misc/Coins/coin_diamond.rsi
+    state: coin_1
+    layers:
+    - state: coin_1
+      map: ["base"]
   - type: PhysicalComposition
     materialComposition:
       Diamond: 10
@@ -206,6 +216,10 @@
   components:
   - type: Sprite
     sprite: Objects/Misc/Coins/coin_adamantine.rsi
+    state: coin_1
+    layers:
+    - state: coin_1
+      map: ["base"]
   - type: PhysicalComposition
     materialComposition:
       Bananium: 5

@@ -8,47 +8,29 @@
   },
   "states": [
     {
-        "name": "window"
+      "name": "window",
+      "directions": 4
     },
     {
-        "name": "window_corner",
-        "directions": 4
+      "name": "reinforced_window",
+      "directions": 4
     },
     {
-        "name": "reinforced_window"
+      "name": "tinted_window",
+      "directions": 4
     },
     {
-        "name": "reinforced_window_corner",
-        "directions": 4
+      "name": "frosted_window",
+      "directions": 4
     },
-    {
-        "name": "tinted_window"
-    },
-    {
-        "name": "tinted_window_corner",
-        "directions": 4
-    },
-    {
-        "name": "frosted_window"
-    },
-    {
-        "name": "frosted_window_corner",
-        "directions": 4
-    },
-    {
-        "name": "clock_window"
-    },
-    {
-        "name": "clock_window_corner",
-        "directions": 4
-    },
-    {
-        "name": "plasma_window"
-    },
-    {
-        "name": "plasma_window_corner",
-        "directions": 4
-    },
+	{
+	  "name": "clock_window",
+	  "directions": 4
+	},
+	{
+	  "name": "plasma_window",
+	  "directions": 4
+	},
     {
         "name": "plasma_reinforced_window",
         "directions": 4
@@ -58,23 +40,7 @@
         "directions": 4
     },
     {
-        "name": "phoron_window",
-        "directions": 4
-    },
-    {
         "name": "phoron_reinforced_window",
-        "directions": 4
-    },
-    {
-        "name": "phoron_reinforced_window",
-        "directions": 4
-    },
-    {
-        "name": "plasma_reinforced_window_corner",
-        "directions": 4
-    },
-    {
-        "name": "plasma_reinforced_window_corner",
         "directions": 4
     },
     {
@@ -82,18 +48,7 @@
         "directions": 4
     },
     {
-        "name": "uranium_window_corner",
-        "directions": 4
-    },
-    {
-        "name": "uranium_window_corner",
-        "directions": 4
-    },
-    {
-        "name": "uranium_reinforced_window"
-    },
-    {
-        "name": "uranium_reinforced_window_corner",
+        "name": "uranium_reinforced_window",
         "directions": 4
     }
   ]
