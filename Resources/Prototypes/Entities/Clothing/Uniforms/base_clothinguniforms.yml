@@ -73,7 +73,6 @@
     - sprite: _Funkystation/Effects/blood.rsi
       state: uniformbloodicon
 
-
 - type: entity
   abstract: true
   parent: UnsensoredClothingUniformBase
@@ -118,7 +117,7 @@
   components:
   - type: Foldable
     canFoldInsideContainer: true
-    unfoldVerbText: unfold-verb-clothing-jacket
-    foldVerbText: fold-verb-clothing-jacket
+    unfoldVerbText: fold-zip-verb
+    foldVerbText: fold-unzip-verb
   - type: FoldableClothing
     foldedEquippedPrefix: folded

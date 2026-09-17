@@ -24,6 +24,27 @@
     group: XenoArtifactNode
 
 - type: entity
+  id: XenoArtifactBecomeLamp
+  parent: BaseOneTimeXenoArtifactEffect
+  description: Emits strange light
+  components:
+  - type: XAEApplyComponents
+    components:
+    - type: PointLight
+    - type: RandomPointLight
+
+- type: entity
+  id: XenoArtifactBecomeRainbowLamp
+  parent: BaseOneTimeXenoArtifactEffect
+  description: Emits shifting light
+  components:
+  - type: XAEApplyComponents
+    components:
+    - type: PointLight
+      radius: 3
+    - type: RgbLightController
+
+- type: entity
   parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactEffectUniversalIntercom
   description: Obtains ability of long-distance communication device
@@ -299,12 +320,14 @@
     - type: MultipleTool
       statusShowBehavior: true
       entries:
-      - behavior: Prying
+      - behavior:
+        - Prying
         useSound:
           path: /Audio/Items/jaws_pry.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Cutting
+      - behavior:
+        - Cutting
         useSound:
           path: /Audio/Items/jaws_cut.ogg
         changeSound:
@@ -326,12 +349,14 @@
     - type: MultipleTool
       statusShowBehavior: true
       entries:
-      - behavior: Screwing
+      - behavior:
+        - Screwing
         useSound:
           path: /Audio/Items/jaws_pry.ogg
         changeSound:
           path: /Audio/Items/drill_use.ogg
-      - behavior: Anchoring
+      - behavior: 
+        - Anchoring
         useSound:
           path: /Audio/Items/jaws_cut.ogg
         changeSound:
@@ -381,27 +406,27 @@
     - type: MultipleTool
       statusShowBehavior: true
       entries:
-      - behavior: Screwing
+      - behavior: [ Screwing ]
         useSound:
           path: /Audio/Items/drill_use.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Prying
+      - behavior: [ Prying ]
         useSound:
           path: /Audio/Items/jaws_pry.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Anchoring
+      - behavior: [ Anchoring ]
         useSound:
           path: /Audio/Items/ratchet.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Cutting
+      - behavior: [ Cutting ]
         useSound:
           path: /Audio/Items/jaws_cut.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Pulsing
+      - behavior: [ Pulsing ]
         changeSound:
           path: /Audio/Items/change_drill.ogg
 
@@ -753,13 +778,13 @@
   id: XenoArtifactRadioactive
   description: Becomes mildly radioactive
   components:
-  - type: XAEApplyComponents
-    applyIfAlreadyHave: true
-    refreshOnReactivate: true
-    components:
-    - type: RadiationSource
-      intensity: 1
-      slope: 0.3
+  - type: XAEEntityEffect
+    effects: 
+    - flags: Artifact
+      effect: !type:Irradiate
+        intensity: 2.0
+        halfLife: 5h
+        maxIntensity: 6.0
 
 - type: entity
   id: XenoArtifactChargeBatteryLow
@@ -1438,13 +1463,14 @@
   id: XenoArtifactRadioactiveStrong
   description: Becomes highly radioactive
   components:
-  - type: XAEApplyComponents
-    applyIfAlreadyHave: true
-    refreshOnReactivate: true
-    components:
-    - type: RadiationSource
-      intensity: 2
-      slope: 0.3
+  - type: XAEEntityEffect
+    effects: 
+    - flags: Artifact
+      effect: !type:Irradiate
+        intensity: 4
+        halfLife: 5h
+        maxIntensity: 12
+        
 
 - type: entity
   id: XenoArtifactMaterialSpawnGlassFew
@@ -1474,6 +1500,7 @@
     refreshOnReactivate: true
     components:
     - type: EntityTableSpawner
+      autoStack: true
       deleteSpawnerAfterSpawn: false
       spawnDetached: true
       table: !type:AllSelector
@@ -1495,6 +1522,7 @@
     refreshOnReactivate: true
     components:
     - type: EntityTableSpawner
+      autoStack: true
       deleteSpawnerAfterSpawn: false
       spawnDetached: true
       table: !type:GroupSelector
@@ -1511,6 +1539,7 @@
     refreshOnReactivate: true
     components:
     - type: EntityTableSpawner
+      autoStack: true
       deleteSpawnerAfterSpawn: false
       spawnDetached: true
       table: !type:GroupSelector

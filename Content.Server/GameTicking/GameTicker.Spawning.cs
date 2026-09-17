@@ -4,15 +4,12 @@ using Content.Server.Administration.Systems;
 using Content.Server.CrewRecords.Systems;
 using Content.Server.GameTicking.Events;
 using Content.Server.Spawners.Components;
-using Content.Server.Spawners.EntitySystems;
-using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Bed.Cryostorage;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
-using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -39,14 +36,14 @@ namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker
     {
-        [Dependency] private readonly SharedContainerSystem _container = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly SharedJobSystem _jobs = default!;
-        [Dependency] private readonly AdminSystem _admin = default!;
-        [Dependency] private readonly IEntityManager _ent = default!;
-        [Dependency] private readonly BankSystem _bankSystem = default!;
-        [Dependency] private readonly CrewMetaRecordsSystem _crewMetaRecords = default!;
-        [Dependency] private readonly StationSystem _stationSystem = default!;
+        [Dependency] private SharedContainerSystem _container = default!;
+        [Dependency] private IAdminManager _adminManager = default!;
+        [Dependency] private SharedJobSystem _jobs = default!;
+        [Dependency] private AdminSystem _admin = default!;
+        [Dependency] private IEntityManager _ent = default!;
+        [Dependency] private BankSystem _bankSystem = default!;
+        [Dependency] private CrewMetaRecordsSystem _crewMetaRecords = default!;
+        [Dependency] private StationSystem _stationSystem = default!;
         public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
         public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
 
@@ -191,7 +188,7 @@ namespace Content.Server.GameTicking
             var newMind = _mind.CreateMind(data!.UserId, character!.Name);
             _mind.SetUserId(newMind, data.UserId);
 
-            var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
+            var jobPrototype = ProtoMan.Index<JobPrototype>(jobId);
 
             _playTimeTrackings.PlayerRolesChanged(player);
 
@@ -277,7 +274,7 @@ namespace Content.Server.GameTicking
             var jobId = "Passenger";
 
 
-            var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
+            var jobPrototype = ProtoMan.Index<JobPrototype>(jobId);
 
             _playTimeTrackings.PlayerRolesChanged(player);
             _bankSystem.EnsureAccount(character!.Name, 50);

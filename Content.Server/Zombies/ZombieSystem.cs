@@ -3,11 +3,11 @@ using Content.Server.Body.Systems;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Systems;
-using Content.Server.Speech.EntitySystems;
+using Content.Shared.Speech.EntitySystems;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Armor;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.Chat;
+using Content.Shared.Body.Systems;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Inventory;
@@ -26,6 +26,8 @@ using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server.Ghost.Roles.Components;
+using Content.Shared.Chat;
 
 namespace Content.Server.Zombies
 {
@@ -316,6 +318,7 @@ namespace Content.Server.Zombies
         }
 
         // Remove the role when getting cloned, getting gibbed and borged, or leaving the body via any other method.
+        // We also need to make sure the zombie is a ghost role because zombies with minds do not get a ghostrolecomponent
         private void OnMindRemoved(Entity<ZombieComponent> ent, ref MindRemovedMessage args)
         {
             _role.MindRemoveRole<ZombieRoleComponent>((args.Mind.Owner, args.Mind.Comp));
@@ -324,6 +327,21 @@ namespace Content.Server.Zombies
         private void OnAttemptConvert(Entity<ZombieComponent> ent, ref AttemptConvertRevolutionaryEvent args)
         {
             args.Cancelled = true;
+        }
+
+        /// <summary>
+        /// Makes the target entity a zombie ghost role. Should only be fired when the entity does not have a mind.
+        /// </summary>
+        private void MakeGhostRole(EntityUid ent)
+        {
+            //yet more hardcoding. Visit zombie.ftl for more information.
+            var ghostRole = EnsureComp<GhostRoleComponent>(ent);
+            EnsureComp<GhostTakeoverAvailableComponent>(ent);
+
+            ghostRole.RoleName = Loc.GetString("zombie-generic");
+            ghostRole.RoleDescription = Loc.GetString("zombie-role-desc");
+            ghostRole.RoleRules = Loc.GetString("zombie-role-rules");
+            ghostRole.MindRoles.Add(MindRoleZombie);
         }
     }
 }
