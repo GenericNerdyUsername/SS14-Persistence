@@ -320,19 +320,18 @@
       - meaty
       - oily
 
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 55
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 18
-        - ReagentId: Protein
-          Quantity: 18
-        - ReagentId: Vitamin
-          Quantity: 6
-        - ReagentId: Ketchup
-          Quantity: 6
+  - type: Solution
+    solution:
+      maxVol: 55
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 18
+      - ReagentId: Protein
+        Quantity: 18
+      - ReagentId: Vitamin
+        Quantity: 6
+      - ReagentId: Ketchup
+        Quantity: 6
   - type: Sprite
     state: bloodredburger
   - type: Tag
@@ -383,17 +382,16 @@
       - meaty
   - type: Sprite
     state: cheese
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 6
+      - ReagentId: Vitamin
+        Quantity: 5
   - type: Tag
     tags:
     - Meat
@@ -417,17 +415,16 @@
       - meaty
   - type: Sprite
     state: cheese
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 6
+      - ReagentId: Vitamin
+        Quantity: 5
   - type: Tag
     tags:
     - Meat
@@ -451,17 +448,16 @@
       - meaty
   - type: Sprite
     state: cheese
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 6
+      - ReagentId: Vitamin
+        Quantity: 5
   - type: Tag
     tags:
     - Meat
@@ -485,17 +481,16 @@
       - meaty
   - type: Sprite
     state: cheese
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 6
+      - ReagentId: Vitamin
+        Quantity: 5
   - type: Tag
     tags:
     - Meat
@@ -519,17 +514,16 @@
       - meaty
   - type: Sprite
     state: cheese
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Protein
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Protein
+        Quantity: 6
+      - ReagentId: Vitamin
+        Quantity: 5
   - type: Tag
     tags:
     - Meat

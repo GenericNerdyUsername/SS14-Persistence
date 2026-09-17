@@ -1413,15 +1413,14 @@
       reagents:
       - ReagentId: Vitamin
         Quantity: 30
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 10
 
   - type: MeleeWeapon
     soundHit: *PlushieCadeSound
@@ -1469,15 +1468,14 @@
       reagents:
       - ReagentId: Phlogiston
         Quantity: 10
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: Phlogiston
-          Quantity: 10
+  - type: Solution
+    solution:
+      maxVol: 20
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
+      - ReagentId: Phlogiston
+        Quantity: 10
 
   - type: MeleeWeapon
     soundHit: *PlushieDawnSound
@@ -1787,21 +1785,20 @@
           Quantity: 5
         - ReagentId: Bicaridine
           Quantity: 5
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: Lacerinol
-          Quantity: 5
-        - ReagentId: Puncturase
-          Quantity: 5
-        - ReagentId: Bruizine
-          Quantity: 5
-        - ReagentId: Bicaridine
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 30
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
+      - ReagentId: Lacerinol
+        Quantity: 5
+      - ReagentId: Puncturase
+        Quantity: 5
+      - ReagentId: Bruizine
+        Quantity: 5
+      - ReagentId: Bicaridine
+        Quantity: 5
 
   - type: MeleeWeapon
     soundHit:

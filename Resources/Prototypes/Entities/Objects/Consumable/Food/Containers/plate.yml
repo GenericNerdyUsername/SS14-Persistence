@@ -201,12 +201,12 @@
       Aluminium: 50
   - type: Extractable
     grindableSolutionName: grindable
-  - type: SolutionContainerManager
-    solutions:
-      grindable:
-        reagents:
-        - ReagentId: Aluminium
-          Quantity: 10
+  - type: Solution
+    id: grindable
+    solution:
+      reagents:
+      - ReagentId: Aluminium
+        Quantity: 10
   - type: SpaceGarbage
 
 # Muffin Tin
@@ -233,10 +233,10 @@
       Aluminium: 25
   - type: Extractable
     grindableSolutionName: grindable
-  - type: SolutionContainerManager
-    solutions:
-      grindable:
-        reagents:
-        - ReagentId: Aluminium
-          Quantity: 5
+  - type: Solution
+    id: grindable
+    solution:
+      reagents:
+      - ReagentId: Aluminium
+        Quantity: 5
   - type: SpaceGarbage

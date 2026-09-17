@@ -418,25 +418,25 @@
         acts: [ "Destruction" ]
   - type: Extractable
     grindableSolutionName: rphoronglass
-  - type: SolutionContainerManager
-    solutions:
-      rphoronglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Plasma
-          Quantity: 6
-        - ReagentId: Bananium
-          Quantity: 6
-        - ReagentId: Titanium
-          Quantity: 3
-        - ReagentId: Iron
-          Quantity: 4.5
-        - ReagentId: Carbon
-          Quantity: 0.5
-        - ReagentId: Phoron
-          Quantity: .5 # Max expected yield of 1.1
-        canReact: false
+  - type: Solution
+    id: rphoronglass
+    solution:
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Plasma
+        Quantity: 6
+      - ReagentId: Bananium
+        Quantity: 6
+      - ReagentId: Titanium
+        Quantity: 3
+      - ReagentId: Iron
+        Quantity: 4.5
+      - ReagentId: Carbon
+        Quantity: 0.5
+      - ReagentId: Phoron
+        Quantity: .5 # Max expected yield of 1.1
+      canReact: false
 
 - type: entity
   parent: SheetRPhoronGlass
@@ -519,15 +519,15 @@
     count: 1
   - type: Extractable
     grindableSolutionName: uglass
-  - type: SolutionContainerManager
-    solutions:
-      uglass:
-        reagents:
-        - ReagentId: Silicon
-          Quantity: 10
-        - ReagentId: Uranium
-          Quantity: 10
-        canReact: false
+  - type: Solution
+    id: uglass
+    solution:
+      reagents:
+      - ReagentId: Silicon
+        Quantity: 10
+      - ReagentId: Uranium
+        Quantity: 10
+      canReact: false
 
 - type: entity
   parent: SheetUGlass
